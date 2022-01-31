@@ -1,5 +1,5 @@
 # Digital-Hormone-Model-Robotic-Swarm
-
+![example-img](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Step50.jpg)
 ## WHAT IS IT?
 
 This is a project done for the course of [Distributed Artificial Intelligence]() 2021-2022 by Prof. [Franco Zambonelli](https://personale.unimore.it/rubrica/dettaglio/zambonelli) at the [University of Modena and Reggio Emilia](https://international.unimore.it/).
@@ -70,6 +70,7 @@ The rate of dissipation will also affect the simulation making the hormones evap
 Finally, the stochastic behaviour will give the swarm of autonomous agents the self-organization and "edge of chaos" characteristics that improve the whole system adaptability. In this way, a single agents doesn't always make the best decision possible but can act randomly with a given probability.
 
 ## THINGS TO TRY
+https://user-images.githubusercontent.com/67196406/151856809-a85a457a-82b6-43db-bc6d-2bd365104929.mp4
 
 Changing the sigma and constants of the activator and inhibitor hormones will make the systems behave in different ways:
 
