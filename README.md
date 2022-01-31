@@ -27,7 +27,7 @@ In our case, we consider the sum of the two hormone for each location and theref
 ### 2. Select the action to make
 Each agent will then sense the environment via the neighboor grids. It will measure the cumulative hormones concentration inside 9 grids (see image below)
 
-[image here]
+![agents-moves](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/agent-moves.png)
 
 Once the measurements are made, the agent will select one of the nine grids to move following the given rules:
 
