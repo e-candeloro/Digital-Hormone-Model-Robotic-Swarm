@@ -391,7 +391,7 @@ Number
 
 @#$#@#$#@
 # Digital Hormone Model Robotic Swarm
-![example-img](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Step50.jpg)
+![example-img](file:images\Step50.jpg)
 ## WHAT IS IT?
 
 This is a project done for the course of [Distributed Artificial Intelligence](https://offertaformativa.unimore.it/corso/insegnamento?cds_cod=20-262&aa_ord_id=2009&pds_cod=20-262-2&aa_off_id=2021&lang=ita&ad_cod=IIM-62&aa_corso=2&fac_id=10005&coorte=2020&anno_corrente=2021&durata=2) 2021-2022 by Prof. [Franco Zambonelli](https://personale.unimore.it/rubrica/dettaglio/zambonelli) at the [University of Modena and Reggio Emilia](https://international.unimore.it/).
@@ -411,15 +411,15 @@ Each agent will do a simple set of actions in a repetite loop.
 The agent will emit a set of two hormones in a given radius around itself: an activator A and inhibitor I.
 The spatial distribution of the concentration C(x,y)hormones around the agent is given by the formulas below.
 
-![formulas](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Activator-Inhibitor-Formulas.jpg)
+![formulas](file:images\Activator-Inhibitor-Formulas.jpg)
 
 In our case, we consider the sum of the two hormone for each location and therefore we obtain a sort of "laplacian" curve (see image below).
 
-![hormones distribution ](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Hormones-Distribution.jpg)
+![hormones distribution ](file:images\Hormones-Distribution.jpg)
 ### 2. Select the action to make
 Each agent will then sense the environment via the neighboor grids. It will measure the cumulative hormones concentration inside 9 grids (see image below)
 
-![agents-moves](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/agent-moves.png)
+![agents-moves](file:images\agent-moves.png)
 
 Once the measurements are made, the agent will select one of the nine grids to move following the given rules:
 
@@ -462,7 +462,7 @@ The rate of dissipation will also affect the simulation making the hormones evap
 Finally, the stochastic behaviour will give the swarm of autonomous agents the self-organization and "edge of chaos" characteristics that improve the whole system adaptability. In this way, a single agents doesn't always make the best decision possible but can act randomly with a given probability.
 
 ## THINGS TO TRY
-https://user-images.githubusercontent.com/67196406/151856809-a85a457a-82b6-43db-bc6d-2bd365104929.mp4
+[video demo with parameters changing](https://user-images.githubusercontent.com/67196406/151856809-a85a457a-82b6-43db-bc6d-2bd365104929.mp4)
 
 Changing the sigma and constants of the activator and inhibitor hormones will make the systems behave in different ways:
 
