@@ -1,4 +1,4 @@
-# Digital-Hormone-Model-Robotic-Swarm
+# Digital Hormone Model Robotic Swarm
 ![example-img](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Step50.jpg)
 ## WHAT IS IT?
 
@@ -103,7 +103,7 @@ A set of code examples for the Net-Logo library were used for reference. In part
 
 ## CREDITS AND REFERENCES
 
-This work was done by Ettore Candeloro and is under the MIT licence, freely available at Git-Hub [here](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm)
+This work was done by me and is under the MIT licence, freely available at Git-Hub [here](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm)
 
 Part of the images used to explain the project are from the below cited paper. All credits goes to the authors.
 
