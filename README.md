@@ -2,9 +2,9 @@
 
 ## WHAT IS IT?
 
-This is a project done for the course of Distributed Artificial Intelligence 2021-2022 by Prof. Franco Zambonelli at the University of Modena and Reggio Emilia.
+This is a project done for the course of [Distributed Artificial Intelligence]() 2021-2022 by Prof. [Franco Zambonelli](https://personale.unimore.it/rubrica/dettaglio/zambonelli) at the [University of Modena and Reggio Emilia](https://international.unimore.it/).
 
-This work wants to implement in Net-Logo the Digital Hormone Model (DHM) presented in this [paper]() and used to build a swarm of autonomous agents that show capabilities of self-organizination and emerging intelligence when interacting with each other in a common environment.
+This work wants to implement in Net-Logo the Digital Hormone Model (DHM-0) presented in this [paper](https://www.researchgate.net/publication/262849917_Hormone-Inspired_Self-Organization_and_Distributed_Control_of_Robotic_Swarms_Special_Issue_on_Analysis_and_Experiments_in_Distributed_Multi-Robot_Systems_Guest_Editors_Nikolaos_P_Papanikolopoulos_and_) [1] and used to build a swarm of autonomous agents that show capabilities of self-organizination and emerging intelligence when interacting with each other in a common environment.
 
 ## HOW IT WORKS
 
@@ -30,6 +30,7 @@ Each agent will then sense the environment via the neighboor grids. It will meas
 [image here]
 
 Once the measurements are made, the agent will select one of the nine grids to move following the given rules:
+
 - the probability of moving to a neighboor grid is proportional to the concentration of activator hormones A and inversely proportional to that of the inhibitor hormone I
 - the sum of all the probabilities is normalized to 1
 
@@ -46,14 +47,15 @@ This project requires Net-Logo installed on your machine.
 After opening the project, you can set the project parameteres and press the button "setup" to confirm them. Then you can start the simulation continuosly pressing the "go" button or in a single step-by-step incremental way using the "1-step" button.
 
 The project parameters you can change are:
-- num_turtles: number of agents for the simulation
-- rate_of_dissipation: rate of evaporation for the hormones in the environment
-- activator_const: amplitude constant for the hormone activator distribution
-- inhibitor_const: amplitude constant for the hormone inhibitor distribution
-- activator_sigma: standard deviation constant for the hormone activator distribution
-- inhibitor_sigma: standard deviation constant for the hormone inhibitor distribution
 
-IMPORTANT!
+- **num_turtles**: number of agents for the simulation
+- **rate_of_dissipation**: rate of evaporation for the hormones in the environment
+- **activator_const**: amplitude constant for the hormone activator distribution
+- **inhibitor_const**: amplitude constant for the hormone inhibitor distribution
+- **activator_sigma**: standard deviation constant for the hormone activator distribution
+- **inhibitor_sigma**: standard deviation constant for the hormone inhibitor distribution
+
+#### IMPORTANT!
 The inhibitor sigma value must be greater that the activator sigma for simulation purposes.
 Also if all the activator and inhibitor parameters are equal, there will be an error given the fact that the hormones will cancel out.
 
@@ -62,17 +64,21 @@ Also if all the activator and inhibitor parameters are equal, there will be an e
 Given a sufficient large number of agents in the simulation and an activator/inhibitor balance, the agents will show a self-organization propension and aggregate and distribute in particular ways.
 In particular, when two or more agents come close, the will tend to remain aggregated given that the activator hormones will "attract" them.
 At the same time the inhibitor hormone will guarantee the non aggregation of all the agents, "repelling" them and making them move away.
+
 The rate of dissipation will also affect the simulation making the hormones evaporate more quickly or slowly.
+
 Finally, the stochastic behaviour will give the swarm of autonomous agents the self-organization and "edge of chaos" characteristics that improve the whole system adaptability. In this way, a single agents doesn't always make the best decision possible but can act randomly with a given probability.
 
 ## THINGS TO TRY
 
 Changing the sigma and constants of the activator and inhibitor hormones will make the systems behave in different ways:
+
 - more importance to the activator will tend to make agents aggregate more
 - more importance to the inhibitor will tend to make agents aggregate less
 - a balanced aggregator/inhibitor importance will make the agents aggregated but not too much, making emerging patterns of local clusters and distributing the agents in the environment.
 
 Changing the rate of dissipation will:
+
 - aggregate more agents if the value is low (hormones tend to remain in the grids)
 - aggregate less agents if the value is high (hormones quickly evaporate and disappear)
 
@@ -96,4 +102,8 @@ A set of code examples for the Net-Logo library were used for reference. In part
 
 ## CREDITS AND REFERENCES
 
-This was done by Ettore Candeloro and is under the MIT licence, freely available at github at this [link]()
+This work was done by Ettore Candeloro and is under the MIT licence, freely available at Git-Hub [here](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm)
+
+Part of the images used to explain the project are from the below cited paper. All credits goes to the authors.
+
+[1] Shen, Wei-min & Will, Peter & Galstyan, Aram & Chuong, Cheng-Ming. (2004). Hormone-Inspired Self-Organization and Distributed Control of Robotic Swarms: Special Issue on Analysis and Experiments in Distributed Multi-Robot Systems (Guest Editors: Nikolaos P. Papanikolopoulos and Stergios I. Roumeliotis). Autonomous Robots. 17. 10.1023/B:AURO.0000032940.08116.f1. 
