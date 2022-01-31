@@ -16,14 +16,14 @@ Each agent will do a simple set of actions in a repetite loop.
 4. **Repeat to step 1**
 
 ### 1. Release Hormones
-The agent will emit a set of two hormones in a given radius: an activator A and inhibitor I.
+The agent will emit a set of two hormones in a given radius around itself: an activator A and inhibitor I.
 The spatial distribution of the concentration C(x,y)hormones around the agent is given by the formulas below.
 
-![formulas](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Activator-Inhibitor-Formulas.jpg?raw=true)
+![formulas](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Activator-Inhibitor-Formulas.jpg)
 
-In our case, we consider the sum of the two hormone for each location and therefore we obtain a sort of "laplacian" curve (see image below)
+In our case, we consider the sum of the two hormone for each location and therefore we obtain a sort of "laplacian" curve (see image below).
 
-[image here]
+![hormones distribution ](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Hormones-Distribution.jpg)
 ### 2. Select the action to make
 Each agent will then sense the environment via the neighboor grids. It will measure the cumulative hormones concentration inside 9 grids (see image below)
 
