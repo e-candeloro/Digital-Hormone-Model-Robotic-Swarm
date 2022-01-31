@@ -19,7 +19,7 @@ Each agent will do a simple set of actions in a repetite loop.
 The agent will emit a set of two hormones in a given radius: an activator A and inhibitor I.
 The spatial distribution of the concentration C(x,y)hormones around the agent is given by the formulas below.
 
-[image here]
+![formulas](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Activator-Inhibitor-Formulas.jpg?raw=true)
 
 In our case, we consider the sum of the two hormone for each location and therefore we obtain a sort of "laplacian" curve (see image below)
 
