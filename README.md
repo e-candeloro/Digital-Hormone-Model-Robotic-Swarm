@@ -9,7 +9,7 @@ This work aims to implement in Net-Logo the Digital Hormone Model (DHM-0) presen
 ## HOW IT WORKS
 
 The model mimics the behaviour of cells in various organism. Cells communicate via secreting hormones in the environment that they can also sense. Each cell follows a set of rules that, based on the environment and near hormones values, leads to a particular action.
-In our case the "cells" are agent (turtles in Net-Logo).
+In our case the "cells" are agents (turtles in Net-Logo).
 
 Each agent will do a simple set of actions in a repetitive loop.
 
