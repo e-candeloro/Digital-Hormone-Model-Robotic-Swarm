@@ -8,10 +8,10 @@ This work aims to implement in Net-Logo the Digital Hormone Model (DHM-0) presen
 
 ## HOW IT WORKS
 
-The model mimics the behaviour of cells in various organism. Cells communicate via secreting hormones in the environment that they can also sense. Each cell follows a set of rules that, based on the environment and near hormone value, leads to a particular action.
+The model mimics the behaviour of cells in various organism. Cells communicate via secreting hormones in the environment that they can also sense. Each cell follows a set of rules that, based on the environment and near hormones values, leads to a particular action.
 In our case the "cells" are agent (turtles in Net-Logo).
 
-Each agent will do a simple set of actions in a repetite loop.
+Each agent will do a simple set of actions in a repetitive loop.
 
 1. **Release hormones in the environment**
 2. **Select the action to make**
@@ -20,11 +20,11 @@ Each agent will do a simple set of actions in a repetite loop.
 
 ### 1. Release Hormones
 The agent will emit a set of two hormones in a given radius around itself: an activator A and inhibitor I.
-The spatial distribution of the concentration C(x,y)hormones around the agent is given by the formulas below.
+The spatial distribution of the concentration C(x,y) hormones around the agent is given by the formulas below and follow a gaussian distribution.
 
 ![formulas](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Activator-Inhibitor-Formulas.jpg)
 
-In our case, we consider the sum of the two hormone for each location and therefore we obtain a sort of "laplacian" curve (see image below).
+In our case, we consider the sum of the two hormones for each location and therefore we obtain a sort of "laplacian" curve (see image below).
 
 ![hormones distribution ](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Hormones-Distribution.jpg)
 
@@ -33,18 +33,18 @@ The other parameters are the two sigma of the two gaussian distributions of the 
 In our case the sigma value of the inhibitor is greater than the activator sigma.
 
 ### 2. Select the action to make
-Each agent will then sense the environment via the neighboor grids. It will measure the cumulative hormones concentration inside 9 grids (see image below).
+Each agent will measure the cumulative hormones concentration inside 9 grids (patches) (see image below).
 The 9 grids are the neighboor 8 and the agent position.
 
 ![agents-moves](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/agent-moves.png)
 
 Once the measurements are made, the agent will select one of the nine grids to move to, following the given rules:
 
-- the probability of moving to a given grid is proportional to the concentration of activator hormones A and inversely proportional to that of the inhibitor hormone I
+- the probability of moving to a given grid is *proportional* to the concentration of activator hormones A and *inversely proportional* to that of the inhibitor hormone I
 - the sum of all the probabilities is normalized to 1
 
-That means that the agent will move stochastically around the space, following the hormones.
-If an agent wants to move to a grid where there is already another agent, then his movement will be switched to another free neighboor cell.
+That means that the agent will move stochastically around the space, following the hormones with a certain probability.
+If an agent wants to move to a grid where there is already another agent, then the movement will occur to another free neighboor cell.
 ### 3. Simulate hormones reaction and dissipation
 In this project the hormone diffusion equation were omitted, implementing only the hormone dissipation and reaction.
 
