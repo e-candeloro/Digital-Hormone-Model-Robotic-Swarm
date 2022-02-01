@@ -120,7 +120,7 @@ A set of code examples for the Net-Logo library were used for reference. In part
 
 ## CREDITS AND REFERENCES
 
-This work was done by Ettore Candeloro and is under the MIT licence, freely available at Git-Hub [here](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm)
+This work was done by Ettore Candeloro and is under the MIT license, freely available at Git-Hub [here](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm)
 
 Part of the images and formulas used to explain the project are from the below cited paper. All credits goes to the authors.
 
