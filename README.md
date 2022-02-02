@@ -21,16 +21,15 @@ Each agent will do a simple set of actions in a repetitive loop.
 ### 1. Release Hormones
 The agent will emit a set of two hormones in a given radius around itself: an activator A and inhibitor I.
 The spatial distribution of the concentration C(x,y) hormones around the agent is given by the formulas below and follow a gaussian distribution.
+Here the Aa and Ai are called the activator and inhibitor constants respectively.
+The other parameters are the two sigma of the two gaussian distributions of the activator and inhibitor.
+In our case the sigma value of the inhibitor is greater than the activator sigma.
 
 ![formulas](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Activator-Inhibitor-Formulas.jpg)
 
 In our case, we consider the sum of the two hormones for each location and therefore we obtain a sort of "laplacian" curve (see image below).
 
 ![hormones distribution ](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Hormones-Distribution.jpg)
-
-Here the Aa and Ai are called the activator and inhibitor constants respectively.
-The other parameters are the two sigma of the two gaussian distributions of the activator and inhibitor.
-In our case the sigma value of the inhibitor is greater than the activator sigma.
 
 ### 2. Select the action to make
 Each agent will measure the cumulative hormones concentration inside 9 grids (patches) (see image below).
@@ -58,7 +57,7 @@ NOTE: the actual dissipation is computed by the patch agent and not the turtle a
 ## HOW TO USE IT
 
 This project requires Net-Logo installed on your machine.
-After opening the project, you can set the project parameteres and press the button "setup" to confirm them. Then you can start the simulatio pressing the "go" button or in a single step-by-step incremental way using the "1-step" button.
+After opening the project, you can set the project parameteres and press the button "setup" to confirm them. Then you can start the simulation pressing the "go" button or in a single step-by-step incremental way using the "1-step" button.
 
 The project parameters you can change are:
 
