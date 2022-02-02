@@ -21,12 +21,12 @@ Each agent will do a simple set of actions in a repetitive loop.
 ### 1. Release Hormones
 The agent will emit a set of two hormones in a given radius around itself: an activator A and inhibitor I.
 The spatial distribution of the concentration C(x,y) hormones around the agent is given by the formulas below and follow a gaussian distribution.
-Here the Aa and Ai are called the activator and inhibitor constants respectively.
-The other parameters are the two sigma of the two gaussian distributions of the activator and inhibitor.
-In our case the sigma value of the inhibitor is greater than the activator sigma.
 
 ![formulas](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Activator-Inhibitor-Formulas.jpg)
 
+Here the Aa and Ai are called the activator and inhibitor constants respectively.
+The other parameters are the two sigma of the two gaussian distributions of the activator and inhibitor.
+In our case the sigma value of the inhibitor is greater than the activator sigma.
 In our case, we consider the sum of the two hormones for each location and therefore we obtain a sort of "laplacian" curve (see image below).
 
 ![hormones distribution ](https://github.com/e-candeloro/Digital-Hormone-Model-Robotic-Swarm/blob/main/images/Hormones-Distribution.jpg)
