@@ -104,7 +104,8 @@ Changing the rate of dissipation will:
 Changing the number of turtles on a low number will make the emerging self-organization behaviours disappear.
 Increasing the number of turtles over a certain number will make the self-organization behaviours appear and at that point increasing the number of turtles will not affect greatly the system behaviour.
 ### Adding explosions (damages) in the environment
-[video here]
+https://user-images.githubusercontent.com/67196406/152697015-c507c862-40ae-492b-9a8b-bf4f915c683e.mp4
+
 Simulating random explosions that will kill the agents in a given radius (from a random patch in the environment) shows interesting results in regards of the self-organization capabilities of the swarm.
 When an explosions occurs, agents re-organize to fill the new non-occupied spaces, even if the number of turtles is lower than before the damage.
 
