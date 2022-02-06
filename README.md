@@ -68,6 +68,7 @@ The project parameters you can change are:
 - **inhibitor_const**: amplitude constant for the hormone inhibitor distribution
 - **activator_sigma**: standard deviation constant for the hormone activator distribution
 - **inhibitor_sigma**: standard deviation constant for the hormone inhibitor distribution
+- **explosion_radius**: define the maximum explosion radius possible when pressing the explosion button
 
 #### IMPORTANT!
 The inhibitor sigma value must be greater that the activator sigma for simulation purposes.
@@ -86,6 +87,7 @@ The rate of dissipation will also affect the simulation making the hormones evap
 Finally, the stochastic behaviour will give the swarm of autonomous agents the self-organization and "edge of chaos" characteristics that improve the whole system adaptability. In this way, a single agents doesn't always make the best decision possible but can act randomly with a given probability.
 
 ## THINGS TO TRY
+### Changing simulation parameters
 https://user-images.githubusercontent.com/67196406/151856809-a85a457a-82b6-43db-bc6d-2bd365104929.mp4
 
 Changing the sigma and constants of the activator and inhibitor hormones will make the systems behave in different ways:
@@ -101,6 +103,10 @@ Changing the rate of dissipation will:
 
 Changing the number of turtles on a low number will make the emerging self-organization behaviours disappear.
 Increasing the number of turtles over a certain number will make the self-organization behaviours appear and at that point increasing the number of turtles will not affect greatly the system behaviour.
+### Adding explosions (damages) in the environment
+[video here]
+Simulating random explosions that will kill the agents in a given radius (from a random patch in the environment) shows interesting results in regards of the self-organization capabilities of the swarm.
+When an explosions occurs, agents re-organize to fill the new non-occupied spaces, even if the number of turtles is lower than before the damage.
 
 ## EXTENDING THE MODEL
 
