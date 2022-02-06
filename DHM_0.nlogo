@@ -129,6 +129,17 @@ to-report sense_and_choose_direction
 
 end
 
+; generate a random positioned explosion of a random radius that will kill all the turtles inside it
+to explosion
+  let radius explosion_radius
+  ask one-of patches [
+    ask patches in-radius radius [ set pcolor red ]
+    ask turtles in-radius radius [
+      die
+    ]
+  ]
+end
+
 ;;make cells secrete hormones following the activator-inhibitor distribution around the given hormone radius
 to secrete_hormones
   let x xcor
@@ -180,7 +191,7 @@ to evaporate_hormones
   ;;the rate of dissipation controls how quickly the hormones evaporate
   set sum_hormones (sum_hormones * (100 - rate_of_dissipation) / 100)
   ;;prints out the hormone value in the patch, with a precision of 2 after the comma
-  ;;set plabel (precision sum_hormones 2)
+  ;; set plabel (precision sum_hormones 2)
   ;; if hormone value is low (under a certain threshold), reset the value to zero
   if (abs sum_hormones) <= 0.0001
   [
@@ -280,7 +291,7 @@ hormone_radius
 hormone_radius
 2
 20
-5.0
+6.0
 1
 1
 NIL
@@ -312,7 +323,7 @@ rate_of_dissipation
 rate_of_dissipation
 1
 100
-91.0
+75.0
 1
 1
 NIL
@@ -327,7 +338,7 @@ activator_const
 activator_const
 0
 100
-35.0
+88.0
 1
 1
 NIL
@@ -342,7 +353,7 @@ inhibitor_const
 inhibitor_const
 0
 100
-29.0
+73.0
 1
 1
 NIL
@@ -357,7 +368,7 @@ activator_sigma
 activator_sigma
 1
 8
-1.6
+2.4
 0.2
 1
 NIL
@@ -372,7 +383,7 @@ inhibitor_sigma
 inhibitor_sigma
 1
 8
-1.8
+4.0
 0.2
 1
 NIL
@@ -384,10 +395,42 @@ INPUTBOX
 117
 138
 num_turtles
-300.0
+500.0
 1
 0
 Number
+
+BUTTON
+199
+87
+268
+120
+NIL
+explosion
+NIL
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
+1
+
+SLIDER
+287
+87
+459
+120
+explosion_radius
+explosion_radius
+4
+40
+20.0
+1
+1
+NIL
+HORIZONTAL
 
 @#$#@#$#@
 # Digital Hormone Model Robotic Swarm 
