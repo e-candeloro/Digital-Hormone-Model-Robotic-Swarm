@@ -64,6 +64,7 @@ The project parameters you can change are:
 
 - **num_turtles**: number of agents for the simulation
 - **rate_of_dissipation**: rate of evaporation for the hormones in the environment
+- **hormone_radius**: secreted hormone maximum radius around each turtle
 - **activator_const**: amplitude constant for the hormone activator distribution
 - **inhibitor_const**: amplitude constant for the hormone inhibitor distribution
 - **activator_sigma**: standard deviation constant for the hormone activator distribution
@@ -103,6 +104,8 @@ Changing the rate of dissipation will:
 
 Changing the number of turtles on a low number will make the emerging self-organization behaviours disappear.
 Increasing the number of turtles over a certain number will make the self-organization behaviours appear and at that point increasing the number of turtles will not affect greatly the system behaviour.
+
+Lastly, changing the hormone radius will make agents aggregate in space with more or less ease if the value is high or low respectively.
 ### Adding explosions (damages) in the environment
 https://user-images.githubusercontent.com/67196406/152697015-c507c862-40ae-492b-9a8b-bf4f915c683e.mp4
 
