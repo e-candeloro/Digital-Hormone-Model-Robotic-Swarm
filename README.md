@@ -47,7 +47,9 @@ That means that the agent will move stochastically around the space, following t
 If an agent wants to move to a grid where there is already another agent, then the movement will occur to another free neighboor cell.
 ### 3. Simulate hormones reaction and dissipation
 https://user-images.githubusercontent.com/67196406/151953684-f7bee3c1-5e79-427a-a903-bb0519a58029.mp4
+
 https://user-images.githubusercontent.com/67196406/153089729-7f83ef58-c22b-4548-af36-1b7acba84d62.mp4
+
 In this project the hormone diffusion equation were omitted, implementing only the hormone dissipation and reaction.
 
 In each grid (patch) of the environment, all hormones produced by the agents nearby are summed, and after that a dissipation step take place to ensure the hormone value decreases with time if no agent is near.
