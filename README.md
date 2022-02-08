@@ -47,7 +47,7 @@ That means that the agent will move stochastically around the space, following t
 If an agent wants to move to a grid where there is already another agent, then the movement will occur to another free neighboor cell.
 ### 3. Simulate hormones reaction and dissipation
 https://user-images.githubusercontent.com/67196406/151953684-f7bee3c1-5e79-427a-a903-bb0519a58029.mp4
-
+https://user-images.githubusercontent.com/67196406/153089729-7f83ef58-c22b-4548-af36-1b7acba84d62.mp4
 In this project the hormone diffusion equation were omitted, implementing only the hormone dissipation and reaction.
 
 In each grid (patch) of the environment, all hormones produced by the agents nearby are summed, and after that a dissipation step take place to ensure the hormone value decreases with time if no agent is near.
@@ -89,25 +89,26 @@ Finally, the stochastic behaviour will give the swarm of autonomous agents the s
 
 ## THINGS TO TRY
 ### Changing simulation parameters
-https://user-images.githubusercontent.com/67196406/151856809-a85a457a-82b6-43db-bc6d-2bd365104929.mp4
+https://user-images.githubusercontent.com/67196406/153088715-54f85d93-9f23-4e7a-9fa9-737a97465595.mp4
 
-Changing the sigma and constants of the activator and inhibitor hormones will make the systems behave in different ways:
+**Changing the sigma and constants of the activator and inhibitor hormones** will make the systems behave in different ways:
 
 - more importance to the activator will tend to make agents aggregate more
 - more importance to the inhibitor will tend to make agents aggregate less
 - a balanced aggregator/inhibitor importance will make the agents aggregated but not too much, making emerging patterns of local clusters and distributing the agents in the environment.
 
-Changing the rate of dissipation will:
+**Changing the rate of dissipation will:**
 
 - aggregate more agents if the value is low (hormones tend to remain in the grids)
 - aggregate less agents if the value is high (hormones quickly evaporate and disappear)
 
-Changing the number of turtles on a low number will make the emerging self-organization behaviours disappear.
+**Changing the number of turtles** on a low number will make the emerging self-organization behaviours disappear.
 Increasing the number of turtles over a certain number will make the self-organization behaviours appear and at that point increasing the number of turtles will not affect greatly the system behaviour.
 
-Lastly, changing the hormone radius will make agents aggregate in space with more or less ease if the value is high or low respectively.
+Lastly, **changing the hormone radius** will make agents aggregate in space with more or less ease if the value is high or low respectively.
+
 ### Adding explosions (damages) in the environment
-https://user-images.githubusercontent.com/67196406/152697015-c507c862-40ae-492b-9a8b-bf4f915c683e.mp4
+https://user-images.githubusercontent.com/67196406/153088945-59158930-7ec8-4c7c-9241-3bdbbcf5c414.mp4
 
 Simulating random explosions that will kill the agents in a given radius (from a random patch in the environment) shows interesting results in regards of the self-organization capabilities of the swarm.
 When an explosions occurs, agents re-organize to fill the new non-occupied spaces, even if the number of turtles is lower than before the damage.
@@ -119,11 +120,12 @@ The stochastic model of behaviour of each agents can be improved to make the age
 Additionally, a propagation model can be implemented to simulate a non instantaneous hormone release in space by the agents, integrating the equation in the paper [1]
 
 ## NETLOGO FEATURES
+To decrease the random behaviour when choosing a direction to take, an exponential function is used to weight more high values of hormones in the patches in the "compute_grid_prob" reporter function.
 
 For the reporter function "sense_and_choose_direction", a particular sets of commands were used: 
-1. a vector containing the hormones values in the neighboor patch was created then normalized to obtain a probability array for each of the 9 possible actions. 
-2. Then to sample and choose the next action, it was necessary to create a cumulative density function table (CDF) and use a random generated number from 0 to 1 to make the sampling. 
-3. After these steps, the next choosen action was reported to the "select_and_perform_action" procedure that will execute the movement only if the selected cell is free of other agents.
+  - a vector containing the hormones values in the neighboor patch was created then normalized to obtain a probability array for each of the 9 possible actions. 
+  - Then to sample and choose the next action, it was necessary to create a cumulative density function table (CDF) and use a random generated number from 0 to 1 to make the sampling. 
+  - After these steps, the next choosen action was reported to the "select_and_perform_action" procedure that will execute the movement only if the selected cell is free of other agents.
 
 
 ## RELATED MODELS
