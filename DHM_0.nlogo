@@ -45,15 +45,14 @@ end
 to-report compute_grid_prob [gridx gridy]
   let value 0
   ask patch-at gridx gridy [
-    ifelse sum_hormones >= 0
-    [
-      ;;if activator hormone is prevalent, the value is proportional to it
-      set value sum_hormones
-    ]
-    [
-      ;;if inhibitor hormone is prevalent, the value is inversely proportional to it
-      set value (abs (1 / sum_hormones))
-    ]
+      set value (e ^ (sum_hormones)) ;we use the e^x to give more weight to high values of hormones
+      ;if the value is > 0 (activator dominant) we tend to have high numbers -> more probable to move there!
+      ;if the value is < 0 (inhibitor dominant) we tend to have low numbers -> less probable to move there!
+  ]
+
+  if verbose = true [
+    show "value computed for patch"
+    show value
   ]
   report value
 end
@@ -83,12 +82,19 @@ to-report sense_and_choose_direction
   set value_list lput (compute_grid_prob 1 0) value_list
   set value_list lput (compute_grid_prob 0 0) value_list
 
-  ;show value_list
-  foreach value_list [ i -> set tot_sum (tot_sum + i)]
-  ;show tot_sum
-  set prob_list (map [i -> (i / tot_sum)] value_list)
-  ;show prob_list
-  ;show sum prob_list
+  foreach value_list [ i -> set tot_sum (tot_sum + i)] ;compute the total sum of the values for normalizing
+
+  set prob_list (map [i -> (i / tot_sum)] value_list) ;normalize the values to obtain a probabilities array
+
+
+  if verbose = true [
+    show "un-normalized vector:"
+    show value_list
+    show "prob vector:"
+    show prob_list
+    ;show sum prob_list
+    ;show tot_sum
+  ]
 
   ;;we need to build a cumulative density function (CDF) and then sample with the random number between 0 and 1 to know where to move
 
@@ -129,7 +135,7 @@ to-report sense_and_choose_direction
 
 end
 
-; generate a random positioned explosion of a random radius that will kill all the turtles inside it
+; generate a random positioned explosion of a random radius that will kill all the turtles inside it >:-)
 to explosion
   let radius explosion_radius
   ask one-of patches [
@@ -145,8 +151,8 @@ to secrete_hormones
   let x xcor
   let y ycor
   ask patches in-radius hormone_radius [
-    ;;updates the patches hormone value (additionally)
-    set sum_hormones (sum_hormones + compute_hormones x y pxcor pycor)
+    ;;updates the patches hormone value in an additional way (overlaps of hormones for each agent gets summed up)
+    set sum_hormones (sum_hormones + (compute_hormones x y pxcor pycor))
     ;;color the patches in 2 different colors to distinguish between activator and inhibitor predominant values
     ifelse sum_hormones >= 0
     [set pcolor magenta]
@@ -160,29 +166,22 @@ end
 ;checks if the action to perform can be allowed
 to select_and_perform_action
 
-  let direction sense_and_choose_direction
-  ;show "moving to:"
-  ;show direction
+  let direction sense_and_choose_direction ;call the reporter to do the stochastic selection of the action to make
+
   let movx (item 0 direction)
   let movy (item 1 direction)
+
+  if verbose = true [
+    show "moving to:"
+    show direction
+  ]
 
   ;check if the grid selected to where to move is occupied by another turtle (except the position 0 0 of the current turtle)
   ifelse ((not any? turtles-on (patch-at movx movy)) or ((movx = 0) and (movy = 0)))
 
-  [move-to (patch-at movx movy)]
+  [move-to (patch-at movx movy)] ;if the cell is free or movx and movx are null, then do the action
 
-  [select_and_perform_action]
-
-    ;;else, if there is already a turtle in the grid where to move,
-    ;;select a random position in the neighboor8 and move to that position if there is not another turtle
-
-    ;while [any? other turtles-on (patch-at movx movy)] [
-     ; let delta1 random -2 ;select randomly 0 or -1
-      ;let delta2 random 2 ;select randomly 0 or +1
-      ;let bool random 1
-      ;ifelse bool = 0 [move-to (patch-at (movx + delta1) (movy + delta2))]
-       ; [move-to (patch-at (movx + delta2) (movy + delta1))]
-    ;]
+  [select_and_perform_action]; if the cell is not free (another turtle is here), redo the stochastic selection of the action with a recursive call
 
 end
 
@@ -190,8 +189,10 @@ end
 to evaporate_hormones
   ;;the rate of dissipation controls how quickly the hormones evaporate
   set sum_hormones (sum_hormones * (100 - rate_of_dissipation) / 100)
+
   ;;prints out the hormone value in the patch, with a precision of 2 after the comma
-  ;; set plabel (precision sum_hormones 2)
+  if (see_hormone_values = true) [set plabel (precision sum_hormones 2)]
+
   ;; if hormone value is low (under a certain threshold), reset the value to zero
   if (abs sum_hormones) <= 0.0001
   [
@@ -208,7 +209,6 @@ clear-output
     ;turtles will tend to move towards activator hormones containing patches and less towards inhibitor hormones,
     ;but still the behaviour is stochastic
     secrete_hormones
-    ;sense
     select_and_perform_action
   ]
 
@@ -291,7 +291,7 @@ hormone_radius
 hormone_radius
 2
 20
-6.0
+5.0
 1
 1
 NIL
@@ -323,7 +323,7 @@ rate_of_dissipation
 rate_of_dissipation
 1
 100
-75.0
+88.0
 1
 1
 NIL
@@ -337,8 +337,8 @@ SLIDER
 activator_const
 activator_const
 0
-100
-88.0
+40
+10.0
 1
 1
 NIL
@@ -352,8 +352,8 @@ SLIDER
 inhibitor_const
 inhibitor_const
 0
-100
-73.0
+40
+10.0
 1
 1
 NIL
@@ -368,7 +368,7 @@ activator_sigma
 activator_sigma
 1
 8
-2.4
+2.2
 0.2
 1
 NIL
@@ -431,6 +431,28 @@ explosion_radius
 1
 NIL
 HORIZONTAL
+
+SWITCH
+230
+172
+403
+205
+see_hormone_values
+see_hormone_values
+1
+1
+-1000
+
+SWITCH
+230
+221
+333
+254
+verbose
+verbose
+1
+1
+-1000
 
 @#$#@#$#@
 # Digital Hormone Model Robotic Swarm 
