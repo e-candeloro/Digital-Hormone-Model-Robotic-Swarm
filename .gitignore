@@ -1,3 +1,5 @@
-.ini
-.pdf
-.DHM_0.tmp.nlogo
+*.ini
+*.pdf
+*.gif
+*.pptx
+*.DHM_0.tmp.nlogo

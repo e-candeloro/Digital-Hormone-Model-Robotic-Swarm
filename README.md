@@ -4,7 +4,7 @@
 
 This is a project done for the course of [Distributed Artificial Intelligence](https://offertaformativa.unimore.it/corso/insegnamento?cds_cod=20-262&aa_ord_id=2009&pds_cod=20-262-2&aa_off_id=2021&lang=ita&ad_cod=IIM-62&aa_corso=2&fac_id=10005&coorte=2020&anno_corrente=2021&durata=2) (2021-2022) by Prof. [Franco Zambonelli](https://personale.unimore.it/rubrica/dettaglio/zambonelli) at the [University of Modena and Reggio Emilia](https://international.unimore.it/).
 
-This work aims to implement in Net-Logo the Digital Hormone Model (DHM-0) presented in this [paper](https://www.researchgate.net/publication/262849917_Hormone-Inspired_Self-Organization_and_Distributed_Control_of_Robotic_Swarms_Special_Issue_on_Analysis_and_Experiments_in_Distributed_Multi-Robot_Systems_Guest_Editors_Nikolaos_P_Papanikolopoulos_and_) [1] and used to build a swarm of autonomous agents that show capabilities of self-organizination and emerging intelligence when interacting with each other in a common environment.
+This work aims to implement in Net-Logo the Digital Hormone Model (DHM-0) presented in this [paper](https://www.researchgate.net/publication/262849917_Hormone-Inspired_Self-Organization_and_Distributed_Control_of_Robotic_Swarms_Special_Issue_on_Analysis_and_Experiments_in_Distributed_Multi-Robot_Systems_Guest_Editors_Nikolaos_P_Papanikolopoulos_and_) [1] and used to build a swarm of autonomous agents that show capabilities of self-organization and emerging intelligence when interacting with each other in a common environment.
 
 ## HOW IT WORKS
 
